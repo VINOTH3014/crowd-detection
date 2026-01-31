@@ -1,0 +1,28 @@
+{
+  "include": [
+    "."
+  ],
+  "exclude": [
+    "**/__pycache__",
+    "**/.*"
+  ],
+  "pythonVersion": "3.11",
+  "pythonPlatform": "win32",
+  "executionEnvironments": [
+    {
+      "root": ".",
+      "pythonVersion": "3.11",
+      "pythonPlatform": "win32",
+      "extraPaths": [
+        "C:\\Users\\skemp\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "C:\\Users\\skemp\\AppData\\Local\\Programs\\Python\\Python311",
+        "C:\\Users\\skemp\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages",
+        "C:\\Users\\skemp\\AppData\\Roaming\\Python\\Python311\\site-packages"
+      ]
+    }
+  ],
+  "typeCheckingMode": "basic",
+  "useLibraryCodeForTypes": true,
+  "autoImportCompletions": true,
+  "diagnosticMode": "workspace"
+}
