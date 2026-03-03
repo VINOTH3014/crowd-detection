@@ -75,8 +75,7 @@ This system provides an automated, real-time AI-based solution for detecting cro
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/your-repository-name.git
-cd your-repository-name
+git clone https://github.com/VINOTH3014/crowd-detection.git
 
 2️⃣ Install Dependencies
 pip install -r requirements.txt
@@ -216,3 +215,4 @@ Aspiring Software Developer | Computer Vision Enthusiast
 Chennai, India
 
 ⭐ If you found this project useful, consider giving it a star!
+
