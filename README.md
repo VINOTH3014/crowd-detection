@@ -1,200 +1,218 @@
-# 👥 Real-Time Crowd Detection System
+# 👥 Real-Time Crowd Detection & Density Monitoring System
 
-A comprehensive crowd detection and monitoring system using YOLOv8, OpenCV, and Streamlit. This system provides real-time person detection, crowd density monitoring, and alert capabilities.
-
-## 🚀 Features
-
-- **Real-time Detection**: Live webcam feed with person detection
-- **Crowd Monitoring**: Configurable threshold-based alerting
-- **Visual Alerts**: Overcrowding warnings with visual indicators
-- **Heatmap Visualization**: Track crowded areas over time
-- **Video Analysis**: Upload and analyze video files
-- **Analytics Dashboard**: Historical data and statistics
-- **Web Interface**: User-friendly Streamlit dashboard
-
-## 📋 Requirements
-
-- Python 3.8+
-- Webcam or video input source
-- 4GB+ RAM recommended
-
-## 🛠️ Installation
-
-1. **Clone or download the project files**
-
-2. **Install Python dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Download YOLO model (automatic on first run):**
-   The system will automatically download the YOLOv8 model on first use.
-
-## 🎯 Quick Start
-
-### Option 1: Streamlit Web Interface (Recommended)
-
-```bash
-streamlit run streamlit_app.py
-```
-
-Then open your browser to `http://localhost:8501`
-
-### Option 2: Command Line Interface
-
-```bash
-python crowd_detector.py
-```
-
-## 📖 Usage Guide
-
-### Streamlit Dashboard
-
-1. **Initialize Detector**: Click "🚀 Initialize Detector" in the sidebar
-2. **Configure Settings**: 
-   - Set crowd threshold (default: 5 people)
-   - Choose YOLO model size
-3. **Live Camera**: 
-   - Click "🎥 Start Camera" to begin real-time detection
-   - Monitor person count and alerts
-   - View heatmap visualization
-4. **Upload Video**: 
-   - Upload video files for analysis
-   - View frame-by-frame results
-   - Analyze crowd patterns over time
-5. **Analytics**: 
-   - View historical trends
-   - Check summary statistics
-   - Monitor alert rates
-
-### Command Line Interface
-
-- **Start detection**: Run `python crowd_detector.py`
-- **Controls**:
-  - Press `q` to quit
-  - Press `r` to reset heatmap
-- **Display**: Shows live feed with bounding boxes and alerts
-
-## ⚙️ Configuration
-
-### Crowd Threshold
-- Default: 5 people
-- Adjustable in Streamlit sidebar
-- Triggers visual alert when exceeded
-
-### YOLO Models
-- **yolov8n.pt**: Fastest, lower accuracy
-- **yolov8s.pt**: Balanced speed/accuracy
-- **yolov8m.pt**: Most accurate, slower
-
-### Detection Parameters
-- Confidence threshold: 0.5 (hardcoded)
-- Person class only (COCO class 0)
-- Real-time processing optimized
-
-## 📊 System Components
-
-### 1. CrowdDetector Class (`crowd_detector.py`)
-- YOLO model integration
-- Person detection and counting
-- Bounding box visualization
-- Heatmap generation
-- Alert management
-
-### 2. Streamlit App (`streamlit_app.py`)
-- Web-based interface
-- Live camera feed
-- Video upload and analysis
-- Analytics dashboard
-- Real-time metrics
-
-### 3. Key Features
-- **Real-time Processing**: Optimized for live video streams
-- **Visual Alerts**: Red overlay when threshold exceeded
-- **Heatmap Tracking**: Cumulative crowd density visualization
-- **Historical Data**: Track trends and patterns
-- **Multi-format Support**: Webcam, video files, various formats
-
-## 🔧 Troubleshooting
-
-### Common Issues
-
-1. **Camera not detected**:
-   - Check camera permissions
-   - Ensure no other applications are using the camera
-   - Try different camera index (0, 1, 2...)
-
-2. **Model download fails**:
-   - Check internet connection
-   - YOLO models download automatically on first use
-   - Manual download: `yolo download yolov8n.pt`
-
-3. **Performance issues**:
-   - Use smaller YOLO model (yolov8n.pt)
-   - Reduce video resolution
-   - Close other applications
-
-4. **Import errors**:
-   - Ensure all dependencies installed: `pip install -r requirements.txt`
-   - Check Python version (3.8+ required)
-
-### Performance Tips
-
-- **For better accuracy**: Use yolov8m.pt model
-- **For faster processing**: Use yolov8n.pt model
-- **For large videos**: Process every Nth frame
-- **For real-time**: Use webcam instead of video files
-
-## 📁 File Structure
-
-```
-project/
-├── crowd_detector.py      # Core detection logic
-├── streamlit_app.py       # Web interface
-├── requirements.txt       # Python dependencies
-└── README.md             # This file
-```
-
-## 🎥 Demo Scenarios
-
-### Testing with Webcam
-1. Position 1-2 people in front of camera
-2. Gradually increase to 6+ people
-3. Observe alert activation
-4. Monitor heatmap development
-
-### Testing with Videos
-1. Upload crowd videos (concerts, events, etc.)
-2. Analyze frame-by-frame results
-3. Check analytics for patterns
-4. Verify threshold detection
-
-## 🔮 Future Enhancements
-
-- [ ] IoT sensor integration
-- [ ] Database logging
-- [ ] Email/SMS alerts
-- [ ] Multi-camera support
-- [ ] Advanced analytics
-- [ ] Mobile app interface
-- [ ] Cloud deployment
-
-## 📄 License
-
-This project is open source and available under the MIT License.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit issues, feature requests, or pull requests.
-
-## 📞 Support
-
-For questions or issues:
-1. Check the troubleshooting section
-2. Review error messages carefully
-3. Ensure all dependencies are installed
-4. Test with different video sources
+An AI-powered crowd monitoring system built using YOLOv8, OpenCV, and Streamlit that performs real-time person detection, crowd density estimation, heatmap visualization, and intelligent alert generation.
 
 ---
 
-**Happy Crowd Monitoring! 👥📊**
+## 🎯 Problem Statement
+
+Overcrowding in public places such as malls, railway stations, stadiums, and events can lead to safety risks and poor crowd management. Manual monitoring is inefficient and unreliable.
+
+This system provides an automated, real-time AI-based solution for detecting crowd density and triggering alerts when predefined thresholds are exceeded.
+
+---
+
+## 🚀 Key Features
+
+- 🎥 **Real-time Person Detection** using YOLOv8
+- 📊 **Dynamic Crowd Density Monitoring**
+- 🚨 **Threshold-Based Overcrowding Alerts**
+- 🔴 **Visual Warning Overlay System**
+- 🌡️ **Heatmap Visualization for Crowd Patterns**
+- 📂 **Video File Upload & Analysis**
+- 📈 **Analytics Dashboard with Historical Insights**
+- 🌐 **Interactive Web Interface (Streamlit)**
+
+---
+
+## 🧠 Technical Highlights
+
+- Implemented YOLOv8 deep learning model for accurate person detection
+- Optimized frame-by-frame real-time video processing
+- Designed modular `CrowdDetector` class architecture
+- Integrated cumulative heatmap generation algorithm
+- Built interactive analytics dashboard using Streamlit
+- Implemented configurable crowd threshold logic
+- Performance-tuned for low-latency detection
+
+---
+
+## 🛠️ Tech Stack
+
+- **Language:** Python 3.8+
+- **Computer Vision:** OpenCV
+- **Deep Learning Model:** YOLOv8
+- **Web Framework:** Streamlit
+- **Libraries:** NumPy, Ultralytics YOLO
+- **Deployment Ready:** Local / Cloud compatible
+
+---
+
+## 📋 System Requirements
+
+- Python 3.8+
+- Webcam or video input source
+- 4GB+ RAM (Recommended)
+- Internet connection (First-time YOLO model download)
+
+---
+
+## 🏗️ System Architecture
+
+1. Video Input (Webcam / Uploaded Video)
+2. Frame Extraction
+3. YOLOv8 Person Detection
+4. Person Counting
+5. Density Calculation
+6. Alert Trigger System
+7. Heatmap Update
+8. Dashboard Visualization
+
+---
+
+## 🛠️ Installation
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/your-username/your-repository-name.git
+cd your-repository-name
+
+2️⃣ Install Dependencies
+pip install -r requirements.txt
+3️⃣ Model Download
+
+YOLOv8 model downloads automatically on first run.
+
+▶️ Quick Start
+🌐 Option 1: Streamlit Web Interface (Recommended)
+streamlit run streamlit_app.py
+
+Open browser:
+
+http://localhost:8501
+💻 Option 2: Command Line Interface
+python crowd_detector.py
+
+Controls:
+
+Press q → Quit
+
+Press r → Reset heatmap
+
+⚙️ Configuration
+Crowd Threshold
+
+Default: 5 people
+
+Adjustable via Streamlit sidebar
+
+Triggers alert when exceeded
+
+YOLO Model Options
+Model	Speed	Accuracy
+yolov8n.pt	Fastest	Lower
+yolov8s.pt	Balanced	Medium
+yolov8m.pt	Slower	High
+Detection Parameters
+
+Confidence Threshold: 0.5
+
+Person Class Only (COCO Class ID 0)
+
+Real-time optimized pipeline
+
+📊 Core Components
+1️⃣ crowd_detector.py
+
+YOLO model loading
+
+Person detection & counting
+
+Bounding box rendering
+
+Heatmap generation
+
+Alert logic handling
+
+2️⃣ streamlit_app.py
+
+Web dashboard UI
+
+Live webcam streaming
+
+Video upload processing
+
+Real-time metrics display
+
+Historical data analytics
+
+📸 Sample Output
+
+(Add screenshots here)
+
+Live bounding box detection
+
+Overcrowding red alert overlay
+
+Heatmap density visualization
+
+Analytics dashboard view
+
+🔧 Troubleshooting
+
+Camera Not Detected
+
+Check permissions
+
+Close other camera apps
+
+Try different camera index (0,1,2...)
+
+Model Download Fails
+
+Check internet connection
+
+Manual download: yolo download yolov8n.pt
+
+Performance Issues
+
+Use smaller model (yolov8n.pt)
+
+Reduce resolution
+
+Close background applications
+
+📁 Project Structure
+project/
+├── crowd_detector.py
+├── streamlit_app.py
+├── requirements.txt
+└── README.md
+🔮 Future Enhancements
+
+Multi-camera support
+
+Cloud deployment
+
+Email / SMS alerts
+
+Database logging
+
+AI-based anomaly detection
+
+IoT integration
+
+Advanced predictive analytics
+
+📄 License
+
+This project is licensed under the MIT License.
+
+👨‍💻 Author
+
+Vinoth N
+Aspiring Software Developer | Computer Vision Enthusiast
+Chennai, India
+
+⭐ If you found this project useful, consider giving it a star!
